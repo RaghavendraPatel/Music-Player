@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player | Home</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/dd36ae0ce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika+Negative">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="home">
+        <main>
+            <nav>
+                <div class="logo">
+                    <i class="fa-brands fa-napster"></i>
+                    <p>Music Player</p> 
+                </div>
+                <div class="search-bar" id = "search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type ="text" id="search-bar" placeholder="What do you want to listen to ?"/>
+                </div>
+            </nav>
+            <div class="carousel-container">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets/image/carousel1.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/image/carousel2.jpg" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/image/carousel3.jpg" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            <div class="category" id="c-songs">
+                <h3>Songs You May Like</h3>
+                <div class="mcard" id="songs">
+                    <!-- Data inserted from ./js/songs.js -->
+                </div>
+            </div>
+            <div class="category" id = "c-albums" >
+                <h3>Album Picks</h3>
+                <div class="mcard" id ="albums">
+                    <!-- Data inserted from ./js/albums.js -->
+                </div> 
+            </div>
+            <div class="category" id="c-artists">
+                <h3>Popular Artists</h3>
+                <div class="mcard" id="artists">
+                    <!-- Data inserted from ./js/artist.js -->
+                </div>
+            </div>
+            <div class="category" id="c-playlist">
+                <h3>Your Playlists</h3>
+                <div class="mcard" id="playlist">
+                    <div class="card-container" onclick="load_song(0);update_queue(songsData)">
+                        <div class="card-cover">
+                            <img src="./assets/image/liked.png" alt="" style="border-radius: 50%;">
+                        </div>
+                        <div class="album-desc">
+                            <p class="card-name">Liked Songs</p>
+                            <p class="card-artist">6 songs</p>
+                        </div>
+                    </div>
+                    <div class="card-container">
+                        <div class="card-cover">
+                            <img src="./assets/image/new.png" alt="" style="border-radius: 50%;">
+                        </div>
+                        <div class="album-desc">
+                            <p class="card-name">Create New Playlist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <aside>
+            <!-- Links to different sections on the page -->
+            <div class="side" id="a-home">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+            </div>
+            <a href="#search-bar">  
+                <div class="side" id="a-search" onclick="search()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p>Search</p>
+                </div>
+            </a>
+            <hr>
+            <a href="#c-songs">
+                <div class="side" id="a-music">
+                    <i class="fa-solid fa-music"></i>
+                    <p>Songs</p>
+                </div>
+            </a>
+            <a href="#c-artists">
+                <div class="side" id="a-artists">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Artists</p>
+                </div>
+            </a>
+            <a href="#c-albums">
+                <div class="side" id="a-albums">
+                    <i class="fa-solid fa-compact-disc"></i>
+                    <p>Albums</p>
+                </div>
+            </a>
+            <a href="">
+                <div class="side" id="a-podcast">
+                    <i class="fa-solid fa-podcast"></i>
+                    <p>Podcast</p>
+                </div>
+            </a>
+            <a href="#c-playlist">
+                <div class="side" id="a-playlist">
+                    <i class="fa-solid fa-lines-leaning"></i>
+                    <p>Playlist</p>
+                </div>
+            </a>
+            <hr>
+            <div class="queue" id="now-playing">
+                <label for="now-playing">
+                    <i class="fa-solid fa-bars"></i>Queue
+                </label>
+                <!-- Queue data is update based on currentAlbum at ./js/main.js -->
+            </div>
+        </aside>
+    </div>
+    <div class="player">
+        <!-- player logic in ./js/main.js -->
+        <div class="song">
+            <div class="thumbnail">
+                <img id = "thumb" src="https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1">
+            </div>
+            <div style="display:flex;align-items: center;">
+                <div class="name">
+                    <p id="song-name">SongName</p>
+                    <p id="artist">Artist Name</p>
+                </div>
+                <div class="liked">
+                    <i class="fa-regular fa-heart"></i>
+                </div> 
+            </div>
+        </div>
+        <div class="control">
+            <div class="playback-control">
+                <i class="fa-solid fa-repeat " id = "loop" onclick = "toggleLoop()"></i>
+                <i class="fa-solid fa-backward-step" onclick="prev_song()"></i>
+                <span id = "play_button">
+                    <i id = "play" class="fa-solid fa-circle-play" onclick="play_song()"></i>
+                </span>
+                <i class="fa-solid fa-forward-step" onclick="next_song()"></i>
+                <i class="fa-solid fa-shuffle" id = "shuffle" onclick="toggleShuffle()"></i>
+            </div>
+            <div class="playback-progress">
+                <input type="range" min ='0' max = '100' onchange="changeDuration()" value="0" id = "duration">
+            </div>
+        </div>
+        <div class="audio-control">
+            <span id = "vol"> 
+                <i class="fa-solid fa-volume-high" onclick="toggleAudio()"></i>
+            </span>
+            <input id="volume" type="range" min = "0" max = "100" onchange="changeVolume()" value = "80">
+        </div>
+    </div>
+    <script src="js/albums.js"></script>
+    <script src="js/songsData.js"></script>
+    <script src="js/songs.js"></script>
+    <script src="js/artistData.js"></script>
+    <script src="js/artist.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

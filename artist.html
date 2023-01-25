@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="t"></title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/artist.css">
+    <script src="https://kit.fontawesome.com/dd36ae0ce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Signika+Negative">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="home">
+        <main>
+            <nav>
+                <a href="index.html">
+                    <div class="logo">
+                        <i class="fa-brands fa-napster"></i>
+                        <p>Music Player</p> 
+                    </div>
+                </a>
+                <div class="search-bar" id = "search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type ="text" id="search-bar" placeholder="What do you want to listen to ?"/>
+                </div>
+            </nav>
+            <div class="banner">
+                <img src="" alt="" id = "banner-img">
+                <div class="blur"></div>
+                <p id="banner-name">Name</p>
+            </div>
+            <div class="category" id="artist-songs">
+                <h3>Popular Songs</h3>
+                <!-- data inserted from ./js/artistPage.js -->
+            </div>
+        </main>
+        <aside>
+            <a href="./index.html">
+                <div class="side" id="a-home">
+                    <i class="fa-solid fa-house"></i>
+                    <p>Home</p>
+                </div>
+            </a>
+            <a href="./index.html#search-bar">  
+                <div class="side" id="a-search" onclick="search()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <p>Search</p>
+                </div>
+            </a>
+            <hr>
+            <a href="./index.html#c-songs">
+                <div class="side" id="a-music">
+                    <i class="fa-solid fa-music"></i>
+                    <p>Songs</p>
+                </div>
+            </a>
+            <a href="./index.html#c-artists">
+                <div class="side" id="a-artists">
+                    <i class="fa-solid fa-user"></i>
+                    <p>Artists</p>
+                </div>
+            </a>
+            <a href="./index.html#c-albums">
+                <div class="side" id="a-albums">
+                    <i class="fa-solid fa-compact-disc"></i>
+                    <p>Albums</p>
+                </div>
+            </a>
+            <a href="./index.html#c-podcast">
+                <div class="side" id="a-podcast">
+                    <i class="fa-solid fa-podcast"></i>
+                    <p>Podcast</p>
+                </div>
+            </a>
+            <a href="./index.html#c-playlist">
+                <div class="side" id="a-playlist">
+                    <i class="fa-solid fa-lines-leaning"></i>
+                    <p>Playlist</p>
+                </div>
+            </a>
+            <hr>
+            <div class="queue" id="now-playing">
+                <label for="now-playing">
+                    <i class="fa-solid fa-bars"></i>Queue
+                </label>
+            </div>
+        </aside>
+    </div>
+    <div class="player">
+        <div class="song">
+            <div class="thumbnail">
+                <img id = "thumb" src="https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1">
+            </div>
+            <div style="display:flex;align-items: center;">
+                <div class="name">
+                    <p id="song-name">SongName</p>
+                    <p id="artist">Artist Name</p>
+                </div>
+                <div class="liked">
+                    <i class="fa-regular fa-heart"></i>
+                </div> 
+            </div>
+        </div>
+        <div class="control">
+            <div class="playback-control">
+                <i class="fa-solid fa-repeat " id = "loop" onclick = "toggleLoop()"></i>
+                <i class="fa-solid fa-backward-step" onclick="prev_song()"></i>
+                <span id = "play_button">
+                    <i id = "play" class="fa-solid fa-circle-play" onclick="play_song()"></i>
+                </span>
+                <i class="fa-solid fa-forward-step" onclick="next_song()"></i>
+                <i class="fa-solid fa-shuffle" id = "shuffle" onclick="toggleShuffle()"></i>
+            </div>
+            <div class="playback-progress">
+                <input type="range" min ='0' max = '100' onchange="changeDuration()" value="0" id = "duration">
+            </div>
+        </div>
+        <div class="audio-control">
+            <span id = "vol"> 
+                <i class="fa-solid fa-volume-high" onclick="toggleAudio()"></i>
+            </span>
+            <input id="volume" type="range" min = "0" max = "100" onchange="changeVolume()" value = "80">
+        </div>
+    </div>
+    <script src="js/artistData.js"></script>
+    <script src="js/songsData.js"></script>
+    <script src="js/main.js"></script>
+    <script src ="js/artistPage.js"></script>
+</body>
+</html>
